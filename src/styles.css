@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
+
+body {
+  background-image: url("https://preview.redd.it/68kwgkbbbrz61.jpg?width=3841&format=pjpg&auto=webp&s=c516c88fc77459dc17dde018e939a6ebbcbbfa14");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  background-color: #fcf4ee;
+  border-style: solid;
+  border-width: thin;
+  border-color: #fcf4ee;
+  border-radius: 10px;
+  position: relative;
+  right: 240px;
+}
+
+#search-input {
+  border: transparent;
+  border-radius: 30px;
+  background-color: #6bb888;
+  padding: 10px 20px 10px 20px;
+  width: calc(100% - 50px);
+  outline: none;
+  font-family: "Arvo", serif;
+  position: relative;
+  bottom: 10px;
+  color: #ffffff;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  /*text-indent: 10px; sirve para desplazar el texto del input*/
+}
+
+input::placeholder {
+  color: #ffffff;
+  font-family: "Arvo", serif;
+}
+
+.delete-icon {
+  color: #ffffff;
+}
+
+#delete-button {
+  font-family: "Arvo", serif;
+  border: none;
+  border-radius: 30px;
+  background-color: #6bb888;
+  padding: 10px;
+  margin-left: -45px;
+  position: relative;
+  bottom: 10px;
+  left: -55px;
+}
+
+.lbar {
+  color: #ffffff;
+  font-family: "Arvo", serif;
+  position: relative;
+  left: -14px;
+  bottom: -2px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.search-icon {
+  color: #ffffff;
+}
+
+#search-button {
+  font-family: "Arvo", serif;
+  border: none;
+  border-radius: 30px;
+  background-color: #6bb888;
+  margin-left: -45px;
+  position: relative;
+  bottom: 10px;
+}
+
+#secondary-buttons {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  border: transparent;
+  border-radius: 30px;
+  background-color: #6bb888;
+  padding: 10px 20px 10px 20px;
+  width: calc(100% - 20px);
+  outline: none;
+  font-family: "Arvo", serif;
+  position: relative;
+  bottom: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#secondary-button-1,
+#secondary-button-2,
+#secondary-button-3 {
+  display: inline;
+}
+
+#location-button {
+  font-family: "Arvo", serif;
+  border: none;
+  border-radius: 30px;
+  background-color: #6bb888;
+}
+
+.location-icon {
+  color: #ffffff;
+  position: relative;
+  left: -15px;
+}
+
+#fahrenheit-celsius-button {
+  font-family: "Arvo", serif;
+  border: none;
+  border-radius: 30px;
+  background-color: #6bb888;
+}
+
+.fahrenheit-symbol {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#play-pause-button {
+  font-family: "Arvo", serif;
+  border: none;
+  border-radius: 30px;
+  background-color: #6bb888;
+}
+
+.play-icon {
+  color: #ffffff;
+  position: relative;
+  left: 15px;
+}
+
+.second-row {
+  padding-top: 15px;
+}
+
+#current-conditions {
+  border: transparent;
+  border-radius: 30px;
+  background-color: #b7b398;
+  padding: 25px 20px 25px 20px;
+  width: 300px;
+  outline: none;
+  font-family: "Arvo", serif;
+  position: relative;
+  left: 10px;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+#current-max-min-temps,
+#current-humidity,
+#current-wind,
+.humidity-icon,
+.wind-icon {
+  font-size: 14px;
+}
+
+#current-temp {
+  font-size: 60px;
+  margin: 0;
+  padding-top: 20px;
+}
+
+#current-feels-like {
+  padding-top: 5px;
+  padding-bottom: 40px;
+  margin: 0;
+  font-size: 13px;
+}
+
+#date-city-weather-column {
+  border: transparent;
+  border-radius: 30px;
+  background-color: #f28b73;
+  padding: 25px 30px 25px 20px;
+  width: 300px;
+  outline: none;
+  font-family: "Arvo", serif;
+  position: relative;
+  left: -12px;
+  color: #ffffff;
+  text-align: right;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+#current-day {
+  font-size: 16px;
+}
+
+#current-city {
+  font-size: 40px;
+}
+
+#current-weather-icon {
+  font-size: 60px;
+  position: relative;
+  top: 10px;
+}
+
+#current-weather-text {
+  font-size: 16px;
+  position: relative;
+  top: 20px;
+  right: 12px;
+}
+
+.third-row {
+  padding-top: 20px;
+}
+
+#forecast-day-1,
+#forecast-day-2,
+#forecast-day-3,
+#forecast-day-4,
+#forecast-day-5 {
+  border: transparent;
+  border-radius: 30px;
+  padding-top: 15px;
+  width: 150px;
+  outline: none;
+  font-family: "Arvo", serif;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#forecast-day-1 {
+  background-color: #f28b73;
+}
+
+#forecast-day-2 {
+  background-color: #74c894;
+}
+
+#forecast-day-3 {
+  background-color: #85cfe2;
+}
+
+#forecast-day-4 {
+  background-color: #fbacc7;
+}
+
+#forecast-day-5 {
+  background-color: #b7b398;
+}
+
+#thu-icon,
+#fri-icon,
+#sat-icon,
+#sunday-icon,
+#mon-icon {
+  font-size: 40px;
+}
+
+#thu-forecast,
+#fri-forecast,
+#sat-forecast,
+#sun-forecast,
+#mon-forecast {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.footer {
+  font-size: 12px;
+  font-family: "Arvo", serif;
+  color: #00b6e9;
+  position: fixed;
+  left: 50%;
+  margin-top: 200px;
+}
+footer {
+  margin-top: 110px;
+}
