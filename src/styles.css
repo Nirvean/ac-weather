@@ -279,3 +279,18 @@ input::placeholder {
 footer {
   margin-top: 110px;
 }
+
+.github-link {
+  text-decoration: none;
+  color: #00b6e9;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+  color: #00b6e9;
+  cursor: grab;
+}
+
+.github-link:hover:active {
+  cursor: grabbing;
+}
