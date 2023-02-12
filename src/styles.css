@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
 
 body {
-  background-image: url("images/ac-background-image.png");
+  background-image: url("/images/ac-background-image.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
