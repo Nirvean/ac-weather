@@ -1,3 +1,27 @@
+//Initial layout
+function showInitialLayout(response) {
+  console.log(response.data);
+  let initialTemp = document.querySelector("#current-temp");
+  initialTemp.innerHTML = Math.round(response.data.main.temp);
+
+  let initialLocation = document.querySelector("#current-city");
+  initialLocation.innerHTML = response.data.name;
+
+  let initialConditions = document.querySelector("#current-weather-text");
+  initialConditions.innerHTML = response.data.weather[0].main;
+
+  let initialHumidity = document.querySelector("#current-humidity");
+  initialHumidity.innerHTML = response.data.main.humidity;
+
+  let initialWind = document.querySelector("#current-wind");
+  initialWind.innerHTML = Math.round(response.data.wind.speed);
+}
+
+let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
+ let initialLocation = "Málaga";
+ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
+ axios.get(apiUrl).then(showInitialLayout)
+
 //Current date and hour
 let currentDate = document.querySelector("#current-date");
 let currentTime = document.querySelector("#current-hour");

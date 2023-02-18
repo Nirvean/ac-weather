@@ -155,12 +155,23 @@ input::placeholder {
   text-align: center;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+#humidity-span, #wind-span {
+  font-size: 14px;
+}
+
 #current-max-min-temps,
 #current-humidity,
 #current-wind,
 .humidity-icon,
 .wind-icon {
   font-size: 14px;
+}
+
+#h1 {
+  font-size: 60px;
+  margin: 0;
+  padding-top: 20px;
 }
 
 #current-temp {
