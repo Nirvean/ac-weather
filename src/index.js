@@ -76,7 +76,7 @@ function searchCity(event) {
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemperature = document.querySelector("#current-temp");
-  currentTemperature.innerHTML = `${temperature} ºC`;
+  currentTemperature.innerHTML = `${temperature}`;
 }
 
 let form = document.querySelector("#search-form");
