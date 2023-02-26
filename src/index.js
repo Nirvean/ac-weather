@@ -19,50 +19,35 @@ function showInitialLayout(response) {
   //Initial weather icon
   let initialWeatherIcon = document.querySelector("#current-weather-icon");
 
-  if (initialConditions.textContent === Thunderstorm) {
-    initialWeatherIcon.removeAttribute("class");
+  if (initialConditions.textContent === "Thunderstorm") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-bolt");
-  } else if (initialConditions.textContent === Drizzle) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Drizzle") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud-rain");
-  } else if (initialConditions.textContent === Rain) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Rain") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud-showers-heavy");
-  } else if (initialConditions.textContent === Snow) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Snow") {
     initialWeatherIcon.setAttribute("class", "fa-regular fa-snowflake");
-  } else if (initialConditions.textContent === Mist) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Mist") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
-  } else if (initialConditions.textContent === Smoke) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Smoke") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
-  } else if (initialConditions.textContent === Haze) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Haze") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
-  } else if (initialConditions.textContent === Dust) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Dust") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
-  } else if (initialConditions.textContent === Fog) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Fog") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
-  } else if (initialConditions.textContent === Sand) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Sand") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
-  } else if (initialConditions.textContent === Ash) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Ash") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
-  } else if (initialConditions.textContent === Squall) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Squall") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-wind");
-  } else if (initialConditions.textContent === Tornado) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Tornado") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-tornado");
-  } else if (initialConditions.textContent === Clear) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Clear") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-sun");
-  } else if (initialConditions.textContent === Clouds) {
-    initialWeatherIcon.removeAttribute("class");
+  } else if (initialConditions.textContent === "Clouds") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud");
   }
 }

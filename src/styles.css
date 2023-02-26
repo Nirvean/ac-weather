@@ -218,8 +218,8 @@ input::placeholder {
 #current-weather-text {
   font-size: 16px;
   position: relative;
-  top: 20px;
-  right: 12px;
+  top: 25px;
+  right: 3px;
 }
 
 #current-weather-text::first-letter {
