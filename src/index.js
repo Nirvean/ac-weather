@@ -1,6 +1,5 @@
 //Initial layout
-function showInitialLayout(response) {
-  console.log(response.data);
+function showSearchResult(response) {
   let initialTemp = document.querySelector("#current-temp");
   initialTemp.innerHTML = Math.round(response.data.main.temp);
 
@@ -55,7 +54,7 @@ function showInitialLayout(response) {
 let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
 let initialLocation = "Málaga";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(showInitialLayout);
+axios.get(apiUrl).then(showSearchResult);
 
 //Current date and hour
 let currentDate = document.querySelector("#current-date");
@@ -105,7 +104,7 @@ function searchCity(event) {
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(showSearchResult);
 }
 
 function showTemperature(response) {
@@ -129,8 +128,7 @@ function setCurrentLocation(position) {
   let longitude = position.coords.longitude;
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-  axios.get(apiUrl).then(showCurrentCity);
+  axios.get(apiUrl).then(showSearchResult);
 }
 
 function readCurrentLocation() {
