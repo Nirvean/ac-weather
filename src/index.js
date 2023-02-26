@@ -8,27 +8,54 @@ function showInitialLayout(response) {
   initialLocation.innerHTML = response.data.name;
 
   let initialConditions = document.querySelector("#current-weather-text");
-  initialConditions.innerHTML = response.data.weather[0].description;
+  initialConditions.innerHTML = response.data.weather[0].main;
 
   let initialHumidity = document.querySelector("#current-humidity");
   initialHumidity.innerHTML = response.data.main.humidity;
 
   let initialWind = document.querySelector("#current-wind");
   initialWind.innerHTML = Math.round(response.data.wind.speed);
+  
+  //Initial weather icon
+  let initialWeatherIcon = document.querySelector("#current-weather-icon");
+
+  if (initialConditions.textContent === Thunderstorm) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-bolt");
+  } else if (initialConditions.textContent === Drizzle) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud-rain");
+  } else if (initialConditions.textContent === Rain) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud-showers-heavy");
+  } else if (initialConditions.textContent === Snow) {
+    initialWeatherIcon.setAttribute("class", "fa-regular fa-snowflake");
+  } else if (initialConditions.textContent === Mist) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
+  } else if (initialConditions.textContent === Smoke) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
+  } else if (initialConditions.textContent === Haze) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
+  } else if (initialConditions.textContent === Dust) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
+  } else if (initialConditions.textContent === Fog) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
+  } else if (initialConditions.textContent === Sand) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
+  } else if (initialConditions.textContent === Ash) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-smog");
+  } else if (initialConditions.textContent === Squall) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-wind");
+  } else if (initialConditions.textContent === Tornado) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-tornado");
+  } else if (initialConditions.textContent === Clear) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-sun");
+  } else if (initialConditions.textContent === Clouds) {
+    initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud");
+  }
 }
 
 let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
- let initialLocation = "Málaga";
- let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
- axios.get(apiUrl).then(showInitialLayout)
-
-//Initial weather icon
-let initialWeatherIcon = document.querySelector("#current-weather-icon");
-
-if (initialConditions.textContent === "Clear") {
-  initialWeatherIcon.removeAttribute("class");
-  initialWeatherIcon.setAttribute("class", "fa-solid fa-sun");
-}
+let initialLocation = "Málaga";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(showInitialLayout);
 
 //Current date and hour
 let currentDate = document.querySelector("#current-date");
