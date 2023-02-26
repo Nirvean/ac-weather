@@ -8,7 +8,7 @@ function showInitialLayout(response) {
   initialLocation.innerHTML = response.data.name;
 
   let initialConditions = document.querySelector("#current-weather-text");
-  initialConditions.innerHTML = response.data.weather[0].main;
+  initialConditions.innerHTML = response.data.weather[0].description;
 
   let initialHumidity = document.querySelector("#current-humidity");
   initialHumidity.innerHTML = response.data.main.humidity;
@@ -21,6 +21,14 @@ let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
  let initialLocation = "Málaga";
  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
  axios.get(apiUrl).then(showInitialLayout)
+
+//Initial weather icon
+let initialWeatherIcon = document.querySelector("#current-weather-icon");
+
+if (initialConditions.textContent === "Clear") {
+  initialWeatherIcon.removeAttribute("class");
+  initialWeatherIcon.setAttribute("class", "fa-solid fa-sun");
+}
 
 //Current date and hour
 let currentDate = document.querySelector("#current-date");

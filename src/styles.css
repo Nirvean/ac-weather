@@ -222,6 +222,10 @@ input::placeholder {
   right: 12px;
 }
 
+#current-weather-text::first-letter {
+  text-transform: uppercase;
+}
+
 .third-row {
   padding-top: 20px;
 }
