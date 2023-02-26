@@ -1,7 +1,8 @@
 //Initial layout
 function showSearchResult(response) {
+  console.log(response.data);
   let initialTemp = document.querySelector("#current-temp");
-  initialTemp.innerHTML = Math.round(response.data.main.temp);
+  initialTemp.innerHTML = `${Math.round(response.data.main.temp)} ºC`;
 
   let initialLocation = document.querySelector("#current-city");
   initialLocation.innerHTML = response.data.name;
@@ -137,6 +138,29 @@ function readCurrentLocation() {
 
 let currentLocationButton = document.querySelector("#location-button");
 currentLocationButton.addEventListener("click", readCurrentLocation);
+
+//Main Celsius to Fahrenheit
+function showTempInFahrenheit(response) {
+let showFahrenheit = Math.round(response.data.main.temp);
+let initialTemp = document.querySelector("#current-temp");
+initialTemp.innerHTML = `${showFahrenheit} ºF`;
+}
+
+function changeTempType() {
+  let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
+  let initialLocation = document.querySelector("#current-city").textContent;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showTempInFahrenheit);
+
+  //Fahrenheit to Celsius toggle button
+  let tempSymbol = document.querySelector(".fahrenheit-symbol");
+  if (tempSymbol.innerHTML === "ºF") {
+    tempSymbol.innerHTML = "ºC";
+  }
+}
+
+let changeTemp = document.querySelector("#fahrenheit-celsius-button");
+changeTemp.addEventListener("click", changeTempType);
 
 //Fake temperature in Celsius and Fahrenheit
 /*function changeTempType() {
