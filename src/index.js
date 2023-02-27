@@ -16,6 +16,15 @@ function showSearchResult(response) {
   let initialWind = document.querySelector("#current-wind");
   initialWind.innerHTML = Math.round(response.data.wind.speed);
 
+  let initialFeelsLike = document.querySelector("#current-feels-like");
+  initialFeelsLike.innerHTML = `Feels like ${Math.round(response.data.main.feels_like)} ºC`;
+
+  let initialMaxTemp = document.querySelector("#current-max-temp");
+  initialMaxTemp.innerHTML = `Max.: ${Math.round(response.data.main.temp_max)} ºC ↑`;
+
+  let initialMinTemp = document.querySelector("#current-min-temp");
+  initialMinTemp.innerHTML = `Min.: ${Math.round(response.data.main.temp_min)} ºC ↑`;
+
   //Initial weather icon
   let initialWeatherIcon = document.querySelector("#current-weather-icon");
 
@@ -139,7 +148,7 @@ function readCurrentLocation() {
 let currentLocationButton = document.querySelector("#location-button");
 currentLocationButton.addEventListener("click", readCurrentLocation);
 
-//Main Celsius to Fahrenheit
+//Main Celsius to Fahrenheit conversion
 function showTempInFahrenheit(response) {
 let showFahrenheit = Math.round(response.data.main.temp);
 let initialTemp = document.querySelector("#current-temp");
