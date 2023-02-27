@@ -23,7 +23,7 @@ function showSearchResult(response) {
   initialMaxTemp.innerHTML = `Max.: ${Math.round(response.data.main.temp_max)} ºC ↑`;
 
   let initialMinTemp = document.querySelector("#current-min-temp");
-  initialMinTemp.innerHTML = `Min.: ${Math.round(response.data.main.temp_min)} ºC ↑`;
+  initialMinTemp.innerHTML = `Min.: ${Math.round(response.data.main.temp_min)} ºC ↓`;
 
   //Initial weather icon
   let initialWeatherIcon = document.querySelector("#current-weather-icon");
@@ -142,11 +142,23 @@ function readCurrentLocation() {
 let currentLocationButton = document.querySelector("#location-button");
 currentLocationButton.addEventListener("click", readCurrentLocation);
 
-//Main Celsius to Fahrenheit conversion
+//Main Celsius to Fahrenheit conversion (included maximum temperature, minimum temperature and feels like temperature conversion)
 function showTempInFahrenheit(response) {
 let showFahrenheit = Math.round(response.data.main.temp);
 let initialTemp = document.querySelector("#current-temp");
 initialTemp.innerHTML = `${showFahrenheit} ºF`;
+
+let showFeelsLikeInFahrenheit = Math.round(response.data.main.feels_like);
+let initialFeelsLike = document.querySelector("#current-feels-like");
+initialFeelsLike.innerHTML = `Feels like ${showFeelsLikeInFahrenheit} ºF`;
+
+let showMaxTempInFahrenheit = Math.round(response.data.main.temp_max);
+let initialMaxTemp = document.querySelector("#current-max-temp");
+initialMaxTemp.innerHTML = `Max.: ${showMaxTempInFahrenheit} ºF ↑`;
+
+let showMinTempInFahrenheit = Math.round(response.data.main.temp_min);
+let initialMinTemp = document.querySelector("#current-min-temp");
+initialMinTemp.innerHTML = `Min.: ${showMinTempInFahrenheit} ºF ↓`;
 }
 
 function changeTempType() {
