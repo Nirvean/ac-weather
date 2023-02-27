@@ -117,12 +117,6 @@ function searchCity(event) {
   axios.get(apiUrl).then(showSearchResult);
 }
 
-function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let currentTemperature = document.querySelector("#current-temp");
-  currentTemperature.innerHTML = `${temperature}`;
-}
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);
 
@@ -158,31 +152,19 @@ initialTemp.innerHTML = `${showFahrenheit} ºF`;
 function changeTempType() {
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let initialLocation = document.querySelector("#current-city").textContent;
+  let tempSymbol = document.querySelector(".fahrenheit-symbol");
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(showTempInFahrenheit);
+  let apiUrl2 = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
 
   //Fahrenheit to Celsius toggle button
-  let tempSymbol = document.querySelector(".fahrenheit-symbol");
   if (tempSymbol.innerHTML === "ºF") {
-    tempSymbol.innerHTML = "ºC";
-  }
-}
-
-let changeTemp = document.querySelector("#fahrenheit-celsius-button");
-changeTemp.addEventListener("click", changeTempType);
-
-//Fake temperature in Celsius and Fahrenheit
-/*function changeTempType() {
-  let replaceTempType = document.querySelector("#current-temp");
-  replaceTempType.innerHTML = `${Math.round(60.8)} ºF`;
-  let tempSymbol = document.querySelector(".fahrenheit-symbol");
-  if (tempSymbol.innerHTML === "ºF") {
+    axios.get(apiUrl).then(showTempInFahrenheit);
     tempSymbol.innerHTML = "ºC";
   } else if (tempSymbol.innerHTML === "ºC") {
-    replaceTempType.innerHTML = `${Math.round(16)} ºC`;
+    axios.get(apiUrl2).then(showSearchResult);
     tempSymbol.innerHTML = "ºF";
   }
 }
 
 let changeTemp = document.querySelector("#fahrenheit-celsius-button");
-changeTemp.addEventListener("click", changeTempType);*/
+changeTemp.addEventListener("click", changeTempType);
