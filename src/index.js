@@ -60,6 +60,7 @@ function showSearchResult(response) {
   }
 
   getForecast(response.data.coord);
+  showLocalDateAndHour(response);
 }
 
 let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
@@ -67,9 +68,10 @@ let initialLocation = "Málaga";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showSearchResult);
 
-//Current date and hour
-let currentDate = document.querySelector("#current-date");
-let currentTime = document.querySelector("#current-hour");
+//Current local date and hour
+function showLocalDateAndHour(response) {
+let currentDate = document.querySelector("#current-local-date");
+let currentTime = document.querySelector("#current-local-hour");
 
 let days = [
   "Sunday",
@@ -80,6 +82,7 @@ let days = [
   "Friday",
   "Saturday"
 ];
+
 let months = [
   "January",
   "February",
@@ -95,16 +98,24 @@ let months = [
 ];
 
 let timeNow = new Date();
-let dayNow = days[timeNow.getDay()];
-let monthNow = months[timeNow.getMonth()];
-let dateNow = timeNow.getDate();
-let hourNow = timeNow.getHours();
+let cityInfo = response.data;
+let timezone = cityInfo.timezone;
+let localTime = timeNow.getTime();
+let localOffset = timeNow.getTimezoneOffset() * 60000;
+let utc = localTime + localOffset;
+let cityDateCode = utc + 1000 * timezone;
+let cityDate = new Date (cityDateCode);
+let dayNow = days[cityDate.getDay()];
+let monthNow = months[cityDate.getMonth()];
+let dateNow = cityDate.getDate();
+let hourNow = cityDate.getHours();
 hourNow = ("0" + hourNow).slice(-2); //or if (hourNow < 10) {hours = `0${hourNow}`;}
 let minutesNow = timeNow.getMinutes();
 minutesNow = ("0" + minutesNow).slice(-2); //or if (minutesNow < 10) {hours = `0${minutesNow}`;}
 
 currentDate.innerHTML = `${dayNow}, ${monthNow} ${dateNow}`;
 currentTime.innerHTML = `${hourNow}:${minutesNow}`;
+}
 
 //Search engine
 function searchCity(event) {
