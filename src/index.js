@@ -1,6 +1,5 @@
 //Initial layout
 function showSearchResult(response) {
-  console.log(response.data);
   let initialTemp = document.querySelector("#current-temp");
   initialTemp.innerHTML = `${Math.round(response.data.main.temp)} ºC`;
 
@@ -59,6 +58,8 @@ function showSearchResult(response) {
   } else if (initialConditions.textContent === "Clouds") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud");
   }
+
+  getForecast(response.data.coord);
 }
 
 let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
@@ -180,3 +181,44 @@ function changeTempType() {
 
 let changeTemp = document.querySelector("#fahrenheit-celsius-button");
 changeTemp.addEventListener("click", changeTempType);
+
+//Five-day forecast
+function showForecastDayName(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+
+  return days[day];
+}
+
+function showForecast(response) {
+let forecast = response.data.daily;
+
+let fiveDayForecast = document.querySelector("#forecast");
+
+let forecastHTML = '<div class="row justify-content-around third-row">';
+forecast.forEach(function (forecastDay, index) {
+  if (index < 5) {
+    forecastHTML = forecastHTML + `
+    <div id="forecast-day-${index + 1}" class="col-2">
+          <div id="forecast-day-of-week" class="row">
+            <p>${showForecastDayName(forecastDay.dt)}</p>
+          </div>
+          <div id="forecast-day" class="row">
+            <i id="thu-icon" class="fa-solid fa-cloud-rain"></i>
+            <span id="thu-forecast">${Math.round(forecastDay.temp.max)} º | ${Math.round(forecastDay.temp.min)} º</span>
+          </div>
+        </div>`;
+  }
+});
+
+forecastHTML = forecastHTML + '</div>';
+fiveDayForecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log("Hola");
+  let apiKey = "62a816282d3b51b7451838a6b7b63934";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
