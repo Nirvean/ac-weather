@@ -199,13 +199,45 @@ let fiveDayForecast = document.querySelector("#forecast");
 let forecastHTML = '<div class="row justify-content-around third-row">';
 forecast.forEach(function (forecastDay, index) {
   if (index < 5) {
+    let addProperIcon = ``;
+    let forecastIcon = forecastDay.weather[0].main;
+    if (forecastIcon === "Drizzle") {
+      addProperIcon = "fa-solid fa-cloud-rain";
+    } else if (forecastIcon === "Rain") {
+      addProperIcon = "fa-solid fa-cloud-showers-heavy";
+    } else if (forecastIcon === "Snow") {
+      addProperIcon = "fa-regular fa-snowflake";
+    } else if (forecastIcon === "Mist") {
+      addProperIcon = "fa-solid fa-smog";
+    } else if (forecastIcon === "Smoke") {
+      addProperIcon = "fa-solid fa-smog";
+    } else if (forecastIcon === "Haze") {
+      addProperIcon = "fa-solid fa-smog";
+    } else if (forecastIcon === "Dust") {
+      addProperIcon = "fa-solid fa-smog";
+    } else if (forecastIcon === "Fog") {
+      addProperIcon = "fa-solid fa-smog";
+    } else if (forecastIcon === "Sand") {
+      addProperIcon = "fa-solid fa-smog";
+    } else if (forecastIcon === "Ash") {
+      addProperIcon = "fa-solid fa-smog";
+    } else if (forecastIcon === "Squall") {
+      addProperIcon = "fa-solid fa-wind";
+    } else if (forecastIcon === "Tornado") {
+      addProperIcon = "fa-solid fa-tornado";
+    } else if (forecastIcon === "Clear") {
+      addProperIcon = "fa-solid fa-sun";
+    } else if (forecastIcon === "Clouds") {
+      addProperIcon = "fa-solid fa-cloud";
+    }
+
     forecastHTML = forecastHTML + `
     <div id="forecast-day-${index + 1}" class="col-2">
           <div id="forecast-day-of-week" class="row">
             <p>${showForecastDayName(forecastDay.dt)}</p>
           </div>
           <div id="forecast-day" class="row">
-            <i id="thu-icon" class="fa-solid fa-cloud-rain"></i>
+            <i id="thu-icon" class="${addProperIcon}"></i>
             <span id="thu-forecast">${Math.round(forecastDay.temp.max)} º | ${Math.round(forecastDay.temp.min)} º</span>
           </div>
         </div>`;
@@ -217,7 +249,6 @@ fiveDayForecast.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
-  console.log("Hola");
   let apiKey = "62a816282d3b51b7451838a6b7b63934";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
