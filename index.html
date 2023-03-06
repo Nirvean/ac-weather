@@ -35,24 +35,24 @@
               placeholder="Search city"
               autocomplete="off"
             />
-            <button id="delete-button" type="reset">
+            <button id="delete-button" type="reset" title="Clear">
               <i class="fa-solid fa-xmark delete-icon"></i>
             </button>
-            <button id="search-button" type="submit">
-              <span class="lbar">|</span
-              ><i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <span class="lbar">|</span>
+            <button id="search-button" type="submit" title="Search">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </button>
           </form>
         </div>
         <div class="col-3 mt-3">
           <ul id="secondary-buttons">
             <li id="secondary-button-1">
-              <button id="location-button" type="button">
+              <button id="location-button" type="button" title="Current location">
                 <i class="fa-solid fa-location-dot location-icon"></i>
               </button>
             </li>
             <li id="secondary-button-2">
-              <button id="fahrenheit-celsius-button" type="button">
+              <button id="fahrenheit-celsius-button" type="button" title="Change temp unit">
                 <span class="fahrenheit-symbol">ºF</span>
               </button>
             </li>
@@ -62,6 +62,7 @@
                 id="play-pause-button"
                 type="button"
                 onclick="handleAudioPlayPause()"
+                title="Play music"
               >
                 <i class="fa-solid fa-play play-icon"></i>
               </button>
