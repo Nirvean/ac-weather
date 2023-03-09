@@ -26,6 +26,7 @@ function showSearchResult(response) {
 
   //Initial weather icon
   let initialWeatherIcon = document.querySelector("#current-weather-icon");
+  let hourNow = showLocalDateAndHour(response);
 
   if (initialConditions.textContent === "Thunderstorm") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-bolt");
@@ -54,13 +55,16 @@ function showSearchResult(response) {
   } else if (initialConditions.textContent === "Tornado") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-tornado");
   } else if (initialConditions.textContent === "Clear") {
+    if((hourNow >= 19) || (hourNow <= 06)){
+      initialWeatherIcon.setAttribute("class", "fa-solid fa-moon");
+    } else {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-sun");
+    }
   } else if (initialConditions.textContent === "Clouds") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud");
   }
 
   getForecast(response.data.coord);
-  showLocalDateAndHour(response);
 }
 
 let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
@@ -115,6 +119,8 @@ minutesNow = ("0" + minutesNow).slice(-2); //or if (minutesNow < 10) {hours = `0
 
 currentDate.innerHTML = `${dayNow}, ${monthNow} ${dateNow}`;
 currentTime.innerHTML = `${hourNow}:${minutesNow}`;
+
+return (hourNow);
 }
 
 //Search engine
