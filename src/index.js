@@ -55,7 +55,7 @@ function showSearchResult(response) {
   } else if (initialConditions.textContent === "Tornado") {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-tornado");
   } else if (initialConditions.textContent === "Clear") {
-    if((hourNow >= 19) || (hourNow <= 06)){
+    if((hourNow >= 21) || (hourNow < 06)) {
       initialWeatherIcon.setAttribute("class", "fa-solid fa-moon");
     } else {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-sun");
@@ -64,6 +64,22 @@ function showSearchResult(response) {
     initialWeatherIcon.setAttribute("class", "fa-solid fa-cloud");
   }
 
+  //Change of music track depending on the parts of the day
+  let audioHTMLSelector = document.querySelector("audio");
+
+  if ((hourNow >= 21) || (hourNow < 06)) {
+    audioHTMLSelector.setAttribute("src", "sounds/night.mp3");
+  } else if ((hourNow >= 06) && (hourNow < 12)) {
+    audioHTMLSelector.setAttribute("src", "sounds/morning.mp3");
+  } else if ((hourNow >= 12) && (hourNow < 13)) {
+    audioHTMLSelector.setAttribute("src", "sounds/noon.mp3");
+  } else if ((hourNow >= 13) && (hourNow < 17)) {
+    audioHTMLSelector.setAttribute("src", "sounds/afternoon.mp3");
+  } else if ((hourNow >= 17) && (hourNow < 21)) {
+    audioHTMLSelector.setAttribute("src", "sounds/evening.mp3");
+  }
+
+  //Runs the five-day forecast
   getForecast(response.data.coord);
 }
 
@@ -127,11 +143,14 @@ return (hourNow);
 function searchCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
+  if (searchInput.value === "") {
+    return;
+  }
+  
   let h2 = document.querySelector("#current-city");
   h2.innerHTML = `${searchInput.value}`;
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
-
   axios.get(apiUrl).then(showSearchResult);
 }
 
@@ -198,6 +217,35 @@ function changeTempType() {
 
 let changeTemp = document.querySelector("#fahrenheit-celsius-button");
 changeTemp.addEventListener("click", changeTempType);
+
+//Music button
+let isPlaying = false;
+
+function audioPlay() {
+  let audioElement = document.querySelector("#audio");
+  let iconElement = document.querySelector("#play-pause-button > i");
+
+  audioElement.play();
+  isPlaying = true;
+  iconElement.classList.replace("fa-play", "fa-pause");
+}
+
+function audioPause() {
+  let audioElement = document.querySelector("#audio");
+  let iconElement = document.querySelector("#play-pause-button > i");
+
+  audioElement.pause();
+  isPlaying = false;
+  iconElement.classList.replace("fa-pause", "fa-play");
+}
+
+function audioPlayPause() {
+  if (isPlaying) {
+    audioPause();
+  } else {
+    audioPlay();
+  }
+}
 
 //Five-day forecast
 function showForecastDayName(timestamp) {

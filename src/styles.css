@@ -131,10 +131,15 @@ input::placeholder {
   background-color: #6bb888;
 }
 
-.play-icon {
+.play-icon,
+.pause-icon {
   color: #ffffff;
   position: relative;
   left: 15px;
+}
+
+audio {
+  display: none;
 }
 
 .second-row {

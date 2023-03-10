@@ -57,11 +57,14 @@
               </button>
             </li>
             <li id="secondary-button-3">
-              <!--<audio controls id="audio" src="sounds/___.mp3" type="audio/mpeg">Your browser does not support the audio element</audio>-->
+              <audio controls id="audio">
+                <source src="sounds/afternoon.mp3" type="audio/mp3">
+                Your browser does not support the audio element
+              </audio>
               <button
                 id="play-pause-button"
                 type="button"
-                onclick="handleAudioPlayPause()"
+                onclick="audioPlayPause()"
                 title="Play music"
               >
                 <i class="fa-solid fa-play play-icon"></i>
