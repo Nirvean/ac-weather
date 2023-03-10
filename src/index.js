@@ -250,7 +250,7 @@ forecast.forEach(function (forecastDay, index) {
 
     forecastHTML = forecastHTML + `
     <div id="forecast-day-${index + 1}" class="col-2">
-          <div id="forecast-day-of-week" class="row">
+          <div class="row">
             <p>${showForecastDayName(forecastDay.dt)}</p>
           </div>
           <div id="forecast-day" class="row">
