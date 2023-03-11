@@ -65,7 +65,7 @@ function showSearchResult(response) {
   }
 
   //Change of music track depending on the parts of the day
-  let audioHTMLSelector = document.querySelector("audio");
+  let audioHTMLSelector = document.querySelector("#audio");
 
   if ((hourNow >= 21) || (hourNow < 06)) {
     audioHTMLSelector.setAttribute("src", "sounds/night.mp3");
