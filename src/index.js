@@ -239,6 +239,8 @@ function audioPause() {
   iconElement.classList.replace("fa-pause", "fa-play");
 }
 
+let ppButton = document.querySelector("#play-pause-button");
+
 function audioPlayPause() {
   if (isPlaying) {
     audioPause();
@@ -246,6 +248,8 @@ function audioPlayPause() {
     audioPlay();
   }
 }
+
+ppButton.addEventListener("click", audioPlayPause);
 
 //Five-day forecast
 function showForecastDayName(timestamp) {
