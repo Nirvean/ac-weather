@@ -239,7 +239,7 @@ function audioPause() {
   iconElement.classList.replace("fa-pause", "fa-play");
 }
 
-let ppButton = document.querySelector("#play-pause-button > i");
+let ppButton = document.querySelector("#play-pause-button");
 
 function audioPlayPause() {
   if (isPlaying) {
