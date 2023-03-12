@@ -68,15 +68,15 @@ function showSearchResult(response) {
   let audioHTMLSelector = document.querySelector("#audio");
 
   if ((hourNow >= 21) || (hourNow < 06)) {
-    audioHTMLSelector.setAttribute("src", "sounds/night.mp3");
+    audioHTMLSelector.setAttribute("src", "https://audio.jukehost.co.uk/P079LVYjwprIupeNpCRW0CrFzZYU60KW"); //night
   } else if ((hourNow >= 06) && (hourNow < 12)) {
-    audioHTMLSelector.setAttribute("src", "sounds/morning.mp3");
+    audioHTMLSelector.setAttribute("src", "https://audio.jukehost.co.uk/3TzpVF4v4y5wdWThMKD3FCCVVS7oQQae"); //morning
   } else if ((hourNow >= 12) && (hourNow < 13)) {
-    audioHTMLSelector.setAttribute("src", "sounds/noon.mp3");
+    audioHTMLSelector.setAttribute("src", "https://audio.jukehost.co.uk/JNrrMdpABExr5kNeMDrGbTXQ82ZPNdMV"); //noon
   } else if ((hourNow >= 13) && (hourNow < 17)) {
-    audioHTMLSelector.setAttribute("src", "https://audio.jukehost.co.uk/QeMcZD4Axh76BZWaUtZkWNhykbEJTmBI");
+    audioHTMLSelector.setAttribute("src", "https://audio.jukehost.co.uk/QeMcZD4Axh76BZWaUtZkWNhykbEJTmBI"); //afternoon
   } else if ((hourNow >= 17) && (hourNow < 21)) {
-    audioHTMLSelector.setAttribute("src", "sounds/evening.mp3");
+    audioHTMLSelector.setAttribute("src", "https://audio.jukehost.co.uk/AD4k3WmtONihvYMSA2oHgqTWFGLfzHk8"); //evening
   }
 
   //Runs the five-day forecast
