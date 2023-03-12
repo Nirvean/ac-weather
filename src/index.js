@@ -74,7 +74,7 @@ function showSearchResult(response) {
   } else if ((hourNow >= 12) && (hourNow < 13)) {
     audioHTMLSelector.setAttribute("src", "sounds/noon.mp3");
   } else if ((hourNow >= 13) && (hourNow < 17)) {
-    audioHTMLSelector.setAttribute("src", "sounds/afternoon.mp3");
+    audioHTMLSelector.setAttribute("src", "https://audio.jukehost.co.uk/QeMcZD4Axh76BZWaUtZkWNhykbEJTmBI");
   } else if ((hourNow >= 17) && (hourNow < 21)) {
     audioHTMLSelector.setAttribute("src", "sounds/evening.mp3");
   }
