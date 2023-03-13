@@ -288,7 +288,7 @@ audio {
   padding-bottom: 15px;
 }
 
-.footer {
+/*.footer {
   font-size: 12px;
   font-family: "Arvo", serif;
   color: #00b6e9;
@@ -313,4 +313,4 @@ footer {
 
 .github-link:hover:active {
   cursor: grabbing;
-}
+}*/
