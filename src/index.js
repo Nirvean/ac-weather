@@ -86,7 +86,11 @@ function showSearchResult(response) {
 let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
 let initialLocation = "Málaga";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(showSearchResult);
+axios.get(apiUrl)
+.catch((error) => {
+  alert('Could not find location');
+})
+.then(showSearchResult);
 
 //Current local date and hour
 function showLocalDateAndHour(response) {
@@ -148,9 +152,14 @@ function searchCity(event) {
   }
   
   let h2 = document.querySelector("#current-city");
-  h2.innerHTML = `${searchInput.value}`;
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
+  if(!(axios.get(apiUrl)
+  .catch((error) => {
+    alert('Could not find location');
+  }))){
+    h2.innerHTML = `${searchInput.value}`;
+  }
   axios.get(apiUrl).then(showSearchResult);
 }
 
@@ -169,7 +178,11 @@ function setCurrentLocation(position) {
   let longitude = position.coords.longitude;
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showSearchResult);
+  axios.get(apiUrl)
+  .catch((error) => {
+    alert('Could not find location');
+  })
+  .then(showSearchResult);
 }
 
 function readCurrentLocation() {
