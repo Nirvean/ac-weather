@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
 
 body {
-  background-image: url("/images/ac-background-image-noleaf.png");
+  background-image: url(../images/ac-background-image-noleaf.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -290,21 +290,19 @@ audio {
   padding-bottom: 15px;
 }
 
-/*.footer {
-  font-size: 12px;
+#github-button {
   font-family: "Arvo", serif;
-  color: #00b6e9;
-  position: fixed;
-  left: 50%;
-  margin-top: 200px;
-}
-footer {
-  margin-top: 110px;
+  border: none;
+  border-radius: 30px;
+  background-color: transparent;
 }
 
-.github-link {
-  text-decoration: none;
-  color: #00b6e9;
+.github-icon {
+  color: #ffffff;
+  font-size: 69px;
+  position: absolute;
+  top: 390px;
+  left: 1417px;
 }
 
 .github-link:hover {
@@ -315,4 +313,4 @@ footer {
 
 .github-link:hover:active {
   cursor: grabbing;
-}*/
+}
