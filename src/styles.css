@@ -152,12 +152,12 @@ audio {
   border: transparent;
   border-radius: 30px;
   background-color: #b7b398;
-  padding: 25px 20px 25px 20px;
+  padding: 25px 20px 27px 20px;
   width: 300px;
   outline: none;
   font-family: "Arvo", serif;
-  position: relative;
-  left: 10px;
+  position: absolute;
+  left: 46px;
   color: #ffffff;
   text-align: center;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
@@ -203,7 +203,7 @@ audio {
   outline: none;
   font-family: "Arvo", serif;
   position: relative;
-  left: -12px;
+  left: 574px;
   color: #ffffff;
   text-align: right;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
