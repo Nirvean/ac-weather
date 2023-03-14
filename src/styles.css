@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
 
 body {
-  background-image: url(../images/ac-background-image-noleaf.png);
+  background-image: url(../images/ac-background-image-noleaf-github.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -298,16 +298,14 @@ audio {
 }
 
 .github-icon {
-  color: #ffffff;
-  font-size: 69px;
+  color: transparent;
+  font-size: 110px;
   position: absolute;
-  top: 390px;
-  left: 1417px;
+  top: 365px;
+  left: 1395px;
 }
 
 .github-link:hover {
-  text-decoration: underline;
-  color: #00b6e9;
   cursor: grab;
 }
 
