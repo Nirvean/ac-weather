@@ -153,7 +153,7 @@ function searchCity(event) {
   if(!(axios.get(apiUrl)
   .catch((error) => {
     swal.fire({ //Resetti alert for invalid location
-      imageUrl: "/images/resetti-icon.png",
+      imageUrl: "images/Resetti-icon.png",
       title: "...WHAT WAS THAT?!",
       html: "Before hitting the search button, type in a VALID location! Type in a VALID one! I KNOW you knew that. <br> <br> YA HEAR ME? <br> <br> <strong>NOW, SCRAM!</strong>",
       confirmButtonText: "Okay...",
