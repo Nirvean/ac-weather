@@ -4,7 +4,7 @@ body {
   background-image: url(../images/ac-background-image-noleaf-github.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center bottom;
   background-attachment: fixed;
 }
 
