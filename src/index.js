@@ -86,11 +86,7 @@ function showSearchResult(response) {
 let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
 let initialLocation = "Málaga";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${initialLocation}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl)
-.catch((error) => {
-  alert('Could not find location');
-})
-.then(showSearchResult);
+axios.get(apiUrl).then(showSearchResult);
 
 //Current local date and hour
 function showLocalDateAndHour(response) {
@@ -156,7 +152,16 @@ function searchCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
   if(!(axios.get(apiUrl)
   .catch((error) => {
-    alert('Could not find location');
+    swal.fire({ //Resetti alert for invalid location
+      imageUrl: "images/Resetti-icon.png",
+      title: "...WHAT WAS THAT?!",
+      html: "Before hitting the search button, type in a VALID location! Type in a VALID one! I KNOW you knew that. <br> <br> YA HEAR ME? <br> <br> <strong>NOW, SCRAM!</strong>",
+      confirmButtonText: "Okay...",
+      confirmButtonColor: "#6bb888",
+      width: 500,
+      height: 400,
+      allowOutsideClick: false
+    });
   }))){
     h2.innerHTML = `${searchInput.value}`;
   }
@@ -165,6 +170,9 @@ function searchCity(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);
+
+let buttonSearch = document.querySelector("#search-button");
+buttonSearch.addEventListener("click", searchCity);
 
 //Current location button
 function showCurrentCity(response) {
@@ -178,11 +186,7 @@ function setCurrentLocation(position) {
   let longitude = position.coords.longitude;
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl)
-  .catch((error) => {
-    alert('Could not find location');
-  })
-  .then(showSearchResult);
+  axios.get(apiUrl).then(showSearchResult);
 }
 
 function readCurrentLocation() {

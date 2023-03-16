@@ -312,3 +312,23 @@ audio {
 .github-link:hover:active {
   cursor: grabbing;
 }
+
+.swal2-image {
+  font-size: 5px;
+}
+
+.swal2-title {
+  font-family:"Arvo", serif;
+  font-size: 29px !important;
+
+}
+
+.swal2-html-container {
+  font-family:"Arvo", serif;
+  font-size: 16px !important;
+}
+
+.swal2-confirm {
+  font-family:"Arvo", serif;
+  font-size: 14px !important;
+}
