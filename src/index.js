@@ -24,6 +24,9 @@ function showSearchResult(response) {
   let initialMinTemp = document.querySelector("#current-min-temp");
   initialMinTemp.innerHTML = `Min.: ${Math.round(response.data.main.temp_min)} ºC ↓`;
 
+  audioPause(); //To reset music button when searching for a new location
+  changeTempType(); //To reset music button when searching for a new location
+
   //Initial weather icon
   let initialWeatherIcon = document.querySelector("#current-weather-icon");
   let hourNow = showLocalDateAndHour(response);
@@ -215,6 +218,24 @@ let initialMinTemp = document.querySelector("#current-min-temp");
 initialMinTemp.innerHTML = `Min.: ${showMinTempInFahrenheit} ºF ↓`;
 }
 
+function showTempInCelsius(response) {
+  let showCelsius = Math.round(response.data.main.temp);
+  let initialTemp = document.querySelector("#current-temp");
+  initialTemp.innerHTML = `${showCelsius} ºC`;
+  
+  let showFeelsLikeInCelsius = Math.round(response.data.main.feels_like);
+  let initialFeelsLike = document.querySelector("#current-feels-like");
+  initialFeelsLike.innerHTML = `Feels like ${showFeelsLikeInCelsius} ºC`;
+  
+  let showMaxTempInCelsius = Math.round(response.data.main.temp_max);
+  let initialMaxTemp = document.querySelector("#current-max-temp");
+  initialMaxTemp.innerHTML = `Max.: ${showMaxTempInCelsius} ºC ↑`;
+  
+  let showMinTempInCelsius = Math.round(response.data.main.temp_min);
+  let initialMinTemp = document.querySelector("#current-min-temp");
+  initialMinTemp.innerHTML = `Min.: ${showMinTempInCelsius} ºC ↓`;
+  }
+
 function changeTempType() {
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let initialLocation = document.querySelector("#current-city").textContent;
@@ -227,7 +248,7 @@ function changeTempType() {
     axios.get(apiUrl).then(showTempInFahrenheit);
     tempSymbol.innerHTML = "ºC";
   } else if (tempSymbol.innerHTML === "ºC") {
-    axios.get(apiUrl2).then(showSearchResult);
+    axios.get(apiUrl2).then(showTempInCelsius);
     tempSymbol.innerHTML = "ºF";
   }
 }
