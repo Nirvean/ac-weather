@@ -9,10 +9,10 @@ body {
 }
 
 .container {
-  background-color: #fcf4ee;
+  background-color: transparent;
   border-style: solid;
   border-width: thin;
-  border-color: #fcf4ee;
+  border-color: transparent;
   border-radius: 10px;
   position: relative;
   right: 240px;

@@ -153,7 +153,7 @@ function searchCity(event) {
   if (searchInput.value === "") {
     return;
   }
-  
+
   let h2 = document.querySelector("#current-city");
   let apiKey = "b4966aaefe805e530bcf3948c7f52bbe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
@@ -220,6 +220,8 @@ initialMaxTemp.innerHTML = `Max.: ${showMaxTempInFahrenheit} ºF ↑`;
 let showMinTempInFahrenheit = Math.round(response.data.main.temp_min);
 let initialMinTemp = document.querySelector("#current-min-temp");
 initialMinTemp.innerHTML = `Min.: ${showMinTempInFahrenheit} ºF ↓`;
+
+getForecast(response.data.coord); // Change five-day forecast to Fahrenheit
 }
 
 function showTempInCelsius(response) {
@@ -238,6 +240,8 @@ function showTempInCelsius(response) {
   let showMinTempInCelsius = Math.round(response.data.main.temp_min);
   let initialMinTemp = document.querySelector("#current-min-temp");
   initialMinTemp.innerHTML = `Min.: ${showMinTempInCelsius} ºC ↓`;
+
+  getForecast(response.data.coord) // Change five-day forecast to Celsius
   }
 
 function changeTempType() {
@@ -362,5 +366,9 @@ fiveDayForecast.innerHTML = forecastHTML;
 function getForecast(coordinates) {
   let apiKey = "62a816282d3b51b7451838a6b7b63934";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let tempSymbol = document.querySelector(".fahrenheit-symbol");
+  if (tempSymbol.innerHTML === "ºC") {
+    apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  }
   axios.get(apiUrl).then(showForecast);
 }
