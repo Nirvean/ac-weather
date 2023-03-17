@@ -25,7 +25,11 @@ function showSearchResult(response) {
   initialMinTemp.innerHTML = `Min.: ${Math.round(response.data.main.temp_min)} ºC ↓`;
 
   audioPause(); //To reset music button when searching for a new location
-  changeTempType(); //To reset music button when searching for a new location
+
+  let tempSymbol = document.querySelector(".fahrenheit-symbol");  //To reset conversion button when searching for a new location
+  if (tempSymbol.innerHTML === "ºC") {
+    changeTempType();
+  }
 
   //Initial weather icon
   let initialWeatherIcon = document.querySelector("#current-weather-icon");
