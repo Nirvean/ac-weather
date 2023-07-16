@@ -9,7 +9,7 @@
   body {
     overflow-y: hidden;
   }
-  
+
   .github-icon {
     font-size: 400px !important;
     top: 290px !important;
@@ -180,7 +180,8 @@ audio {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-#humidity-span, #wind-span {
+#humidity-span,
+#wind-span {
   font-size: 14px;
 }
 
@@ -335,17 +336,16 @@ audio {
 }
 
 .swal2-title {
-  font-family:"Arvo", serif;
+  font-family: "Arvo", serif;
   font-size: 29px !important;
-
 }
 
 .swal2-html-container {
-  font-family:"Arvo", serif;
+  font-family: "Arvo", serif;
   font-size: 16px !important;
 }
 
 .swal2-confirm {
-  font-family:"Arvo", serif;
+  font-family: "Arvo", serif;
   font-size: 14px !important;
 }
